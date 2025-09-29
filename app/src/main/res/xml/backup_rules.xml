@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- 包含的文件和目录 -->
+    <include domain="sharedpref" path="."/>
+    <include domain="database" path="."/>
+    <include domain="file" path="documents/"/>
+    
+    <!-- 排除敏感数据 -->
+    <exclude domain="sharedpref" path="user_credentials.xml"/>
+    <exclude domain="sharedpref" path="auth_tokens.xml"/>
+    <exclude domain="database" path="sensitive_data.db"/>
+    <exclude domain="file" path="cache/"/>
+    <exclude domain="file" path="temp/"/>
+</full-backup-content>

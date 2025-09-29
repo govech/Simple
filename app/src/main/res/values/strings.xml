@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 应用名称 -->
+    <string name="app_name">Android Framework</string>
+    
+    <!-- 通用文本 -->
+    <string name="loading">加载中…</string>
+    <string name="retry">重试</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
+    <string name="ok">确定</string>
+    <string name="back">返回</string>
+    <string name="save">保存</string>
+    <string name="delete">删除</string>
+    <string name="edit">编辑</string>
+    <string name="search">搜索</string>
+    <string name="refresh">刷新</string>
+    <string name="more">更多</string>
+    <string name="settings">设置</string>
+    
+    <!-- 错误信息 -->
+    <string name="error_network">网络连接失败，请检查网络设置</string>
+    <string name="error_server">服务器异常，请稍后重试</string>
+    <string name="error_unknown">未知错误，请稍后重试</string>
+    <string name="error_timeout">请求超时，请稍后重试</string>
+    <string name="error_no_data">暂无数据</string>
+    
+    <!-- 空状态 -->
+    <string name="empty_data_title">暂无内容</string>
+    <string name="empty_data_message">当前没有任何数据</string>
+    <string name="empty_search_title">未找到相关内容</string>
+    <string name="empty_search_message">换个关键词试试吧</string>
+    
+    <!-- 权限相关 -->
+    <string name="permission_camera_title">相机权限</string>
+    <string name="permission_camera_message">需要相机权限来拍照或录制视频</string>
+    <string name="permission_storage_title">存储权限</string>
+    <string name="permission_storage_message">需要存储权限来保存文件</string>
+    <string name="permission_denied">权限被拒绝</string>
+    <string name="permission_go_settings">前往设置</string>
+    
+    <!-- 登录相关 -->
+    <string name="login_title">登录</string>
+    <string name="login_username">用户名</string>
+    <string name="login_password">密码</string>
+    <string name="login_button">登录</string>
+    <string name="login_register">注册</string>
+    <string name="login_forgot_password">忘记密码？</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_failed">登录失败</string>
+    
+    <!-- 注册相关 -->
+    <string name="register_title">注册</string>
+    <string name="register_email">邮箱</string>
+    <string name="register_confirm_password">确认密码</string>
+    <string name="register_button">注册</string>
+    <string name="register_success">注册成功</string>
+    <string name="register_failed">注册失败</string>
+    
+    <!-- 设置相关 -->
+    <string name="settings_theme">主题设置</string>
+    <string name="settings_theme_system">跟随系统</string>
+    <string name="settings_theme_light">浅色模式</string>
+    <string name="settings_theme_dark">深色模式</string>
+    <string name="settings_language">语言设置</string>
+    <string name="settings_about">关于应用</string>
+    <string name="settings_version">版本信息</string>
+    <string name="settings_logout">退出登录</string>
+    
+    <!-- 导航相关 -->
+    <string name="nav_home">首页</string>
+    <string name="nav_profile">我的</string>
+    <string name="nav_settings">设置</string>
+    
+    <!-- 列表相关 -->
+    <string name="list_load_more">加载更多</string>
+    <string name="list_no_more">没有更多数据了</string>
+    <string name="list_pull_refresh">下拉刷新</string>
+    
+    <!-- Toast 消息 -->
+    <string name="toast_save_success">保存成功</string>
+    <string name="toast_delete_success">删除成功</string>
+    <string name="toast_copy_success">复制成功</string>
+    <string name="toast_network_unavailable">网络不可用</string>
+</resources>

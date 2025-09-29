@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <!-- 生产环境域名 -->
+        <domain includeSubdomains="true">api.example.com</domain>
+        
+        <!-- 测试环境域名，允许明文传输 -->
+        <domain includeSubdomains="true" cleartextTrafficPermitted="true">api-dev.example.com</domain>
+        <domain includeSubdomains="true" cleartextTrafficPermitted="true">api-staging.example.com</domain>
+        
+        <!-- 本地开发环境 -->
+        <domain includeSubdomains="true" cleartextTrafficPermitted="true">localhost</domain>
+        <domain includeSubdomains="true" cleartextTrafficPermitted="true">127.0.0.1</domain>
+        <domain includeSubdomains="true" cleartextTrafficPermitted="true">10.0.2.2</domain>
+        
+        <!-- 证书固定 -->
+        <pin-set>
+            <pin digest="SHA-256">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</pin>
+            <!-- 备用证书 -->
+            <pin digest="SHA-256">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=</pin>
+        </pin-set>
+    </domain-config>
+    
+    <!-- 基础配置 -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <!-- 信任系统证书 -->
+            <certificates src="system"/>
+            <!-- 信任用户证书（仅在debug模式下） -->
+            <certificates src="user"/>
+        </trust-anchors>
+    </base-config>
+</network-security-config>
