@@ -9,6 +9,4 @@
     <exclude domain="sharedpref" path="user_credentials.xml"/>
     <exclude domain="sharedpref" path="auth_tokens.xml"/>
     <exclude domain="database" path="sensitive_data.db"/>
-    <exclude domain="file" path="cache/"/>
-    <exclude domain="file" path="temp/"/>
 </full-backup-content>

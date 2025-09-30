@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.hilt)
-    alias(libs.plugins.kapt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -125,7 +125,7 @@ dependencies {
     // Hilt 依赖注入
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     // 网络请求
     implementation(libs.bundles.network)
@@ -133,7 +133,7 @@ dependencies {
     // 数据库
     implementation(libs.bundles.room)
     implementation(libs.datastore.preferences)
-    kapt(libs.room.compiler)
+    ksp(libs.room.compiler)
 
     // 协程
     implementation(libs.bundles.coroutines)
@@ -154,9 +154,4 @@ dependencies {
     // Debug 工具
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-}
-
-// Kapt 配置
-kapt {
-    correctErrorTypes = true
 }
