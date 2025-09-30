@@ -1,6 +1,7 @@
 package com.framework.android.data.mapper
 
 import com.framework.android.data.remote.dto.AuthResponse
+import com.framework.android.data.mapper.UserMapper.toDomainModel
 import com.framework.android.domain.model.AuthToken
 import com.framework.android.domain.model.User
 

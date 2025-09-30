@@ -8,13 +8,4 @@ plugins {
     alias(libs.plugins.detekt) apply false
 }
 
-// 配置全局的代码质量检查
-subprojects {
-    apply(plugin = "io.gitlab.arturbosch.detekt")
-    
-    detekt {
-        config = files("$rootDir/config/detekt/detekt.yml")
-        buildUponDefaultConfig = true
-        autoCorrect = true
-    }
-}
+// 全局配置可以在这里添加

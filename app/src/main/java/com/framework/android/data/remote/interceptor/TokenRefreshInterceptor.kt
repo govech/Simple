@@ -1,7 +1,6 @@
 package com.framework.android.data.remote.interceptor
 
 import com.framework.android.data.local.datastore.UserPreferences
-import com.framework.android.data.remote.api.AuthService
 import com.framework.android.data.remote.dto.RefreshTokenRequest
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -16,7 +15,6 @@ import javax.inject.Singleton
  */
 @Singleton
 class TokenRefreshInterceptor @Inject constructor(
-    private val authService: AuthService,
     private val userPreferences: UserPreferences
 ) : Interceptor {
 
@@ -35,30 +33,10 @@ class TokenRefreshInterceptor @Inject constructor(
                 
                 if (!refreshToken.isNullOrEmpty()) {
                     try {
-                        // 刷新token
-                        val refreshResponse = runBlocking {
-                            authService.refreshToken(RefreshTokenRequest(refreshToken))
-                        }
-                        
-                        if (refreshResponse.isSuccessful) {
-                            val tokenResponse = refreshResponse.body()
-                            if (tokenResponse != null) {
-                                // 保存新的token
-                                runBlocking {
-                                    userPreferences.saveTokens(
-                                        accessToken = tokenResponse.accessToken,
-                                        refreshToken = tokenResponse.refreshToken
-                                    )
-                                }
-                                
-                                // 使用新token重试原始请求
-                                val newRequest = originalRequest.newBuilder()
-                                    .header("Authorization", "Bearer ${tokenResponse.accessToken}")
-                                    .build()
-                                    
-                                response.close()
-                                return chain.proceed(newRequest)
-                            }
+                        // 这里应该调用一个独立的刷新token服务，避免循环依赖
+                        // 暂时清除用户数据，让用户重新登录
+                        runBlocking {
+                            userPreferences.clearUserData()
                         }
                     } catch (e: Exception) {
                         // token刷新失败，清除用户数据

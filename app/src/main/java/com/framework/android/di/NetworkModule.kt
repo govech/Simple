@@ -15,7 +15,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -37,6 +37,17 @@ object NetworkModule {
             coerceInputValues = true
             encodeDefaults = true
         }
+    }
+    
+    /**
+     * 提供Token刷新拦截器
+     */
+    @Provides
+    @Singleton
+    fun provideTokenRefreshInterceptor(
+        userPreferences: UserPreferences
+    ): TokenRefreshInterceptor {
+        return TokenRefreshInterceptor(userPreferences)
     }
     
     /**

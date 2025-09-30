@@ -7,7 +7,9 @@ import com.framework.android.data.local.dao.UserDao
 import com.framework.android.data.local.datastore.UserPreferences
 import com.framework.android.data.mapper.UserMapper.toDomainModel
 import com.framework.android.data.mapper.UserMapper.toDomainModelList
+import com.framework.android.data.mapper.UserMapper.toEntity
 import com.framework.android.data.mapper.UserMapper.toEntityList
+import com.framework.android.data.mapper.UserMapper.entityToDomainModelList
 import com.framework.android.data.remote.api.UserService
 import com.framework.android.domain.model.User
 import com.framework.android.domain.repository.UserRepository
@@ -87,7 +89,7 @@ class UserRepositoryImpl @Inject constructor(
             // 从本地获取
             safeDatabaseCall {
                 val offset = (page - 1) * pageSize
-                userDao.getUsersPaged(pageSize, offset).toDomainModelList()
+                userDao.getUsersPaged(pageSize, offset).entityToDomainModelList()
             }
         }
     }
@@ -123,7 +125,7 @@ class UserRepositoryImpl @Inject constructor(
     
     override fun observeLocalUsers(): Flow<List<User>> {
         return userDao.getAllUsers().map { entities ->
-            entities.toDomainModelList()
+            entities.entityToDomainModelList()
         }
     }
     

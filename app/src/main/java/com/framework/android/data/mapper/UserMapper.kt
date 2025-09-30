@@ -87,14 +87,14 @@ object UserMapper {
     /**
      * Entity列表转领域模型列表
      */
-    fun List<UserEntity>.toDomainModelList(): List<User> {
+    fun List<UserEntity>.entityToDomainModelList(): List<User> {
         return map { it.toDomainModel() }
     }
     
     /**
      * DTO列表转Entity列表
      */
-    fun List<UserDto>.toEntityList(): List<UserEntity> {
+    fun List<UserDto>.dtoToEntityList(): List<UserEntity> {
         return map { it.toEntity() }
     }
 }
